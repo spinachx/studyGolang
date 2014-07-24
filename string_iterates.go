@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+     "fmt"
+)
 
 func f1() {
      //以字节数组遍历
