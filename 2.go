@@ -79,6 +79,14 @@ func mymap(f func(int) int, arr []int) []int {
 	return ret
 }
 
+func plusTwo() (f func(int) int) {
+	return func(x int) int { return x + 2 }
+}
+
+func plusX(x int) (f func(int) int) {
+	return func(y int) int { return x + y }
+}
+
 func main() {
 	xs := []float64{1.0, 2.3, 3.0}
 	fmt.Println(average(xs))
@@ -108,5 +116,14 @@ func main() {
 	fmt.Println()
 
 	fmt.Printf("%v", mymap(func(i int) int { return i * 2 }, []int{1, 2, 3, 4}))
+	fmt.Println()
+	
+	p2 := plusTwo()
+	fmt.Println(p2(2))
+	fmt.Println(plusTwo()(2))
+
+	px := plusX(3)
+	fmt.Println(px(8))
+	fmt.Println(plusX(3)(8))
 
 }
